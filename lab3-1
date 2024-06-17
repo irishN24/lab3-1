@@ -3,14 +3,26 @@
 
 int main() {
 	int temp = 0;
-	int numbers[] = {15, 4, 1, 9, 16, 2, 13, 18, 14, 4};
-	size_t count = sizeof(numbers) / sizeof(numbers[0]);
-	for (int i = 1; i <= count; i++) {
-		if (numbers[i]
-	}
+	int numbers[] = {1,2,3,4,5,6,7,8};
+    int n = sizeof(numbers) / sizeof(numbers[0]);
+    if (n != 0) {
+        int tmp = 0, i, j;
+        for (int i = 1; i < n; i++) {
+            tmp = numbers[i];
+            j = i - 1;
 
-
-
-
+            while ((j >= 0) && (numbers[j] > tmp)) {
+                numbers[j + 1] = numbers[j];
+                j = j - 1;
+            }
+            numbers[j + 1] = tmp;
+        }
+        for (int i = 0; i < n; i++) {
+            printf("%d, ", numbers[i]);
+        }
+    }
+    else {
+        printf("EMPTY ARRAY!\n");
+    }
 	return 0;
 }
